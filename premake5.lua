@@ -18,6 +18,9 @@ project "Engine"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+	pchheader "enpch.h"
+	pchsource "Engine/src/enpch.cpp"
+
 	files
 	{
 		"%{prj.name}/src/**.h",
@@ -26,13 +29,18 @@ project "Engine"
 
 	includedirs
 	{
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/src",
+		"%{prj.name}/vendor/spdlog/include",
+	}
+
+	links 
+	{ 
 	}
 
 	filter "system:windows"
 		cppdialect "C++17"
 		staticruntime "On"
-		systemversion "10.0.17134.0"
+		systemversion "latest"
 
 		defines
 		{
@@ -84,8 +92,8 @@ project "Sandbox"
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
-		systemversion "10.0.17134.0"
+		staticruntime "on"
+		systemversion "latest"
 
 		defines
 		{
@@ -94,12 +102,12 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "EN_DEBUG"
-		symbols "On"
+		symbols "on"
 
 	filter "configurations:Release"
 		defines "EN_RELEASE"
-		optimize "On"
+		optimize "on"
 
 	filter "configurations:Dist"
 		defines "EN_DIST"
-		optimize "On"
+		optimize "on"
