@@ -16,4 +16,4 @@ Engine/Engine.vcxproj
 Engine/Engine.vcxproj.filters
 Engine/Makefile
 
-./Makefile
+Makefile
