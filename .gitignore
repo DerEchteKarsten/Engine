@@ -1,19 +1,16 @@
 # Directories
 .vs/
 .vscode/
-bin/
+/bin/
 bin-int/
 
 # Files
 *.user
 
-Engine.sln
+.vs/
+**.sln
+**.vcxproj
+**.vcxproj.filters
+**.vcxproj.user
 
-Sandbox/Sandbox.vcxproj
-Sandbox/Makefile
-
-Engine/Engine.vcxproj
-Engine/Engine.vcxproj.filters
-Engine/Makefile
-
-Makefile
+**/Makefile
